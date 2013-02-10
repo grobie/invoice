@@ -1,7 +1,9 @@
-# This controller handles the login/logout function of the site.  
+# encoding: UTF-8
+
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
   before_filter :login_required, :except => [:new, :create]
-  
+
   # render new.rhtml
   def new
   end

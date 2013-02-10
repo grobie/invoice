@@ -7,7 +7,7 @@
     <th>Pdf</th>
     <th>Doc</th>
   </tr>
-  <%- for invoice in invoices -%>
+  <%- for invoice in @invoices -%>
   <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
     <td class="right"><%= link_to h(invoice.invoice_num), invoice %></td>
     <td class="right"><%= link_to invoice.customer.company_name, customer_url(invoice.customer) %></td>
@@ -22,7 +22,7 @@
   <%- end -%>
   <tr>
     <td colspan="2"></td>
-    <td class="right"><%= number_to_currency_with_euro invoices.sum(:sum) %></td>
+    <td class="right"><%= number_to_currency_with_euro @invoices.sum(&:sum) %></td>
     <td colspan="3"></td>
   </tr>
 </table>
