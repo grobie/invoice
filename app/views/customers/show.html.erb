@@ -6,7 +6,7 @@
   <p><strong>Email:</strong> <%= mail_to @customer.email %></p>
   <p><strong>Telefonnummer:</strong> <%=h @customer.tel_number %></p>
   <p><strong>Web:</strong> <%= link_to @customer.web, @customer.web %></p>
-  
+
   <br />
   <p><strong>Straße:</strong> <%=h @customer.street %></p>
   <p><strong>Postleitzahl:</strong> <%=h @customer.zipcode %></p>
@@ -16,5 +16,5 @@
   <%= link_to 'Zurück', customers_path %>
 
   <br /><br />
-  <%= render :partial => "invoices/invoices", :object => @customer.invoices %>
+  <%= render :partial => "invoices/invoices" %>
 </div>
