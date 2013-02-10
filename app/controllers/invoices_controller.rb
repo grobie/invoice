@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
-  
+
   def index
-    @invoices = Invoice.ordered
+    @invoices = Invoice.ordered.all(:include => [ :customer, :pdf, :doc ])
   end
 
   def show
@@ -47,7 +47,7 @@ class InvoicesController < ApplicationController
     if params[:doc] && params[:doc]["uploaded_data"] != ""
       @invoice.doc = Doc.new(params[:doc])
     end
-    
+
     respond_to do |format|
       if @invoice.update_attributes(params[:invoice])
         flash[:notice] = 'Rechnung erfolgreich aktualisiert.'
